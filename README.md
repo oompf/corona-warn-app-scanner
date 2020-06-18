@@ -11,4 +11,4 @@
 
 ## Ausgabe
 
-![https://imgur.com/fdQfqo9]
+!(Beispiel-Ausgabe)[https://imgur.com/download/fdQfqo9/]
