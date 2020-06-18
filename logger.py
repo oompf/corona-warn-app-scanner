@@ -12,7 +12,6 @@ def do_stats():
         first_dt = db.hget(k, "first_seen").decode("utf-8")
         last_dt = db.hget(k, "last_seen").decode("utf-8")
         ct = int(db.hget(k, "seen_counter"))
-
         l.append((datetime.datetime.strptime(first_dt, "%d.%m.%Y %H:%M:%S"), k, ct, datetime.datetime.strptime(last_dt, "%d.%m.%Y %H:%M:%S")))
 
     l.sort()

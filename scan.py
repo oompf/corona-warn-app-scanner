@@ -31,17 +31,17 @@ class ExposureScanner:
 
     def set_scan_options(self):
         # 1. Should scanning be active?
-        # 2. Set scan interval to 10ms
-        # 3. Set scan window to 10ms
+        # 2. Set scan interval to 100ms
+        # 3. Set scan window to 100ms
         # 4. Do not use a random bluetooth address
         # 5. Do not filter
         cmd = struct.pack(
             ">BHHBB",
             False,
-            int(30 / 0.625),
-            int(30 / 0.625),
+            int(100 / 0.625),
+            int(100 / 0.625),
             False,
-            0x00)
+            False)
         bluez.hci_send_cmd(self.sock, OGF_LE_CTL, OCF_LE_SET_SCAN_PARAMETERS, cmd)
 
     def handle(self, pkt):
@@ -81,8 +81,6 @@ class ExposureScanner:
             self.db.hset(key, "last_seen", dt)
             self.db.hincrby(key, "seen_counter", 1)
             self.db.sadd("set:rolling", key)
-            #print(key)
-            #self.db.sadd("keys-list", "k:{}".format(key))
 
     def scan(self):
         self.toggle_scan(False)
@@ -100,3 +98,4 @@ class ExposureScanner:
 
 scanner = ExposureScanner()
 scanner.scan()
+
