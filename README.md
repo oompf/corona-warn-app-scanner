@@ -11,4 +11,8 @@
 
 ## Ausgabe
 
+* 1. Spalte: Dauer des Kontakts
+* 2. Spalte: Rolling Proximity Identifier
+* 3. Spalte: Anzahl der empfangenen Beacons
+
 ![Beispiel-Ausgabe](https://imgur.com/download/fdQfqo9/)
