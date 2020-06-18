@@ -38,8 +38,8 @@ class ExposureScanner:
         cmd = struct.pack(
             ">BHHBB",
             False,
-            int(10 / 0.625),
-            int(10 / 0.625),
+            int(30 / 0.625),
+            int(30 / 0.625),
             False,
             0x00)
         bluez.hci_send_cmd(self.sock, OGF_LE_CTL, OCF_LE_SET_SCAN_PARAMETERS, cmd)
